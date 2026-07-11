@@ -181,6 +181,29 @@
         background: rgba(255,255,255,0.12);
         border-color: var(--brand-teal, #1db3a8);
     }
+.footer-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+    .footer-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.18s ease;
+    }
+    .footer-cta-btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .footer-cta-primary { background: var(--brand-teal); color: #fff; }
+    .footer-cta-primary:hover { color: #fff; }
+    .footer-cta-secondary { background: rgba(255,255,255,0.08); color: rgba(216,237,233,0.9); border: 1px solid rgba(255,255,255,0.15); }
+    .footer-cta-secondary:hover { color: var(--brand-teal); }
 </style>
 
 <%- include('chatWidget.ejs') %>
