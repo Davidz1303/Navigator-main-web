@@ -35,6 +35,20 @@
             </div>
         </div>
         <div class="footer-divider"></div>
+
+        <!-- Footer CTA Buttons -->
+        <div class="footer-cta-row">
+            <a href="https://navigator-main-9cm8xprvr-davis1303.vercel.app/home" target="_blank" rel="noopener" class="footer-cta-btn footer-cta-primary">
+                🌐 Main Website
+            </a>
+            <a href="#" class="footer-cta-btn footer-cta-secondary">
+                📲 Download App
+            </a>
+            <a href="#" class="footer-cta-btn footer-cta-secondary">
+                🎮 Play Game
+            </a>
+        </div>
+
         <p class="footer-copy">&copy; 2026 Navigator+ — a youth road safety education project &middot; Not an official government website &middot; <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/terms-of-use">Terms of Use</a></p>
     </div>
 </footer>
@@ -109,6 +123,52 @@
     }
     .footer-copy a { color: rgba(216,237,233,0.6); text-decoration: underline; }
     .footer-copy a:hover { color: var(--brand-teal); }
+
+    .footer-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+
+    .footer-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+    .footer-cta-btn:hover {
+        transform: translateY(-2px);
+        text-decoration: none;
+        opacity: 0.92;
+    }
+
+    .footer-cta-primary {
+        background: var(--brand-teal, #1db3a8);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(29,179,168,0.35);
+    }
+    .footer-cta-primary:hover {
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(29,179,168,0.5);
+    }
+
+    .footer-cta-secondary {
+        background: rgba(255,255,255,0.08);
+        color: rgba(216,237,233,0.9);
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .footer-cta-secondary:hover {
+        color: var(--brand-teal, #1db3a8);
+        background: rgba(255,255,255,0.12);
+        border-color: var(--brand-teal, #1db3a8);
+    }
 </style>
 
 <%- include('chatWidget.ejs') %>
