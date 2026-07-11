@@ -2,12 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const path = require('path');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use('/images', express.static('images')); // points directly to images folder
-app.use(express.static('public')); // serves files like public/Nav_app.html directly, e.g. /Nav_app.html
+app.use('/images', express.static(path.join(__dirname, 'images'))); // points directly to images folder
+app.use(express.static(path.join(__dirname, 'public'))); // serves files like public/Nav_app.html directly, e.g. /Nav_app.html
 
 const port = 3000;
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Splash/landing page
