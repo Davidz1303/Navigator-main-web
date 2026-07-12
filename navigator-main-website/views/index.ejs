@@ -507,8 +507,32 @@
             background: radial-gradient(ellipse at 50% 100%, rgba(29,179,168,0.12) 0%, transparent 60%);
             pointer-events: none;
         }
-        .land-footer img { height: 44px; margin-bottom: 12px; }
+        .land-footer img { height: 44px; margin-bottom: 16px; }
         .land-footer p { opacity: 0.6; margin: 0; font-size: 13px; color: var(--brand-nav-text); }
+
+        .land-footer-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .lf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+        .lf-btn:hover { transform: translateY(-2px); text-decoration: none; opacity: 0.9; }
+        .lf-btn-primary { background: var(--brand-teal); color: #fff; }
+        .lf-btn-primary:hover { color: #fff; }
+        .lf-btn-ghost { background: rgba(255,255,255,0.08); color: rgba(216,237,233,0.85); border: 1px solid rgba(255,255,255,0.15); }
+        .lf-btn-ghost:hover { color: var(--brand-teal); border-color: var(--brand-teal); }
 
         /* ---- REVEAL ANIMATION ---- */
         .reveal { opacity: 0; transform: translateY(32px); }
@@ -779,6 +803,13 @@
     <!-- ========== LANDING FOOTER ========== -->
     <div class="land-footer">
         <img src="/images/app_logo_footer.png" alt="Navigator+ logo">
+
+        <div class="land-footer-btns">
+            <a href="https://navigator-main-9cm8xprvr-davis1303.vercel.app/home" target="_blank" rel="noopener" class="lf-btn lf-btn-primary">🌐 Main Website</a>
+            <a href="#" class="lf-btn lf-btn-ghost">📲 Download App</a>
+            <a href="#" class="lf-btn lf-btn-ghost">🎮 Play Game</a>
+        </div>
+
         <p>A student road safety initiative for Singapore &middot; Not an official government website</p>
     </div>
 
