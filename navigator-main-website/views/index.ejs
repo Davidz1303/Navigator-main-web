@@ -75,17 +75,34 @@
             transition: color 0.2s ease; white-space: nowrap;
         }
         .land-nav-links a:hover { color: var(--brand-red); }
+        .land-nav-ctas {
+            display: flex; gap: 10px; flex-shrink: 0;
+        }
         .land-nav-cta {
             white-space: nowrap; flex-shrink: 0;
             background: var(--ink); color: #fff !important; text-decoration: none;
             font-family: var(--font-display); font-weight: 600; font-size: 0.88rem;
             padding: 9px 20px; border-radius: 999px;
             transition: background 0.25s ease, transform 0.25s ease;
+            display: inline-flex; align-items: center; gap: 6px;
         }
-        .land-nav-cta:hover { background: var(--brand-red); transform: translateY(-1px); }
+        .land-nav-cta:hover { background: var(--brand-red); transform: translateY(-1px); color: #fff; }
+        .land-nav-cta .arrow { transition: transform 0.3s ease; font-size: 0.85em; }
+        .land-nav-cta:hover .arrow { transform: translateX(4px); }
+        .land-nav-cta-ghost {
+            white-space: nowrap; flex-shrink: 0;
+            background: transparent; color: var(--ink) !important; text-decoration: none;
+            font-family: var(--font-display); font-weight: 600; font-size: 0.88rem;
+            padding: 8px 18px; border-radius: 999px;
+            border: 1.5px solid rgba(15,42,30,0.22);
+            transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+            display: inline-flex; align-items: center;
+        }
+        .land-nav-cta-ghost:hover { border-color: var(--ink); transform: translateY(-1px); color: var(--ink); text-decoration: none; }
         @media (max-width: 768px) {
             .land-nav-links { display: none; }
             .land-nav { width: calc(100% - 24px); }
+            .land-nav-cta-ghost { display: none; }
         }
 
         /* ---- HERO ---- */
@@ -574,7 +591,7 @@
 <!-- Landing nav -->
 <nav class="land-nav" id="landNav">
     <div class="land-nav-inner">
-        <a href="#top" class="land-brand">
+        <a href="/" class="land-brand">
             <img src="/images/app_logo_g.png" alt="Navigator+" height="30">
             Navigator<em>+</em>
         </a>
@@ -583,7 +600,10 @@
             <li><a href="#how">How it works</a></li>
             <li><a href="#why">Why it matters</a></li>
         </ul>
-        <a href="/home" class="land-nav-cta">Enter Site</a>
+        <div class="land-nav-ctas">
+            <a href="/home" class="land-nav-cta">Enter Navigator+ <span class="arrow">&rarr;</span></a>
+            <a href="#how" class="land-nav-cta-ghost">How It Works</a>
+        </div>
     </div>
 </nav>
 
