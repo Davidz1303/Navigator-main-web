@@ -161,27 +161,7 @@ app.post('/api/chat', async function(req, res) {
         });
     }
 
-    const SYSTEM_INSTRUCTION = `
-You are Navigator AI, a helpful road-safety assistant for a Singapore road-safety website.
-
-Only answer questions related to:
-- Road safety
-- Pedestrian safety
-- Cyclist and PMD safety
-- Passenger and seat-belt safety
-- New-driver safety
-- Road accidents
-- Emergency actions
-- Safe driving habits
-- Singapore road-safety awareness
-
-Keep answers simple, friendly and suitable for teenagers.
-Keep answers below 120 words.
-
-For emergencies, advise the user to contact the appropriate Singapore emergency service.
-
-If the question is unrelated to road safety, politely explain that you only answer road-safety questions.
-    `;
+    const SYSTEM_INSTRUCTION = "System Instructions: You are the Navigator+ assistant, a road safety expert in Singapore. Keep your answers concise (2-3 sentences), practical, and focused on road safety, driving rules, or the app's features. Do not use complex markdown, just basic bold text.";
 
     try {
         const response = await fetch(
@@ -195,15 +175,10 @@ If the question is unrelated to road safety, politely explain that you only answ
                     contents: [
                         {
                             role: 'user',
-                            parts: [{ text: userMessage }]
+                            parts: [{ text: SYSTEM_INSTRUCTION + '\n\nUser: ' + userMessage }]
                         }
                     ],
-                    system_instruction: {
-                        parts: [{ text: SYSTEM_INSTRUCTION }]
-                    },
-                    generationConfig: {
-                        maxOutputTokens: 250
-                    }
+                    
                 })
             }
         );
@@ -271,6 +246,7 @@ if (useHttps && !process.env.VERCEL) {
 
 // Export the app for Vercel Serverless Functions
 module.exports = app;
+
 
 
 
