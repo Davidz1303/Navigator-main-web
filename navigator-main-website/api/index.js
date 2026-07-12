@@ -185,7 +185,7 @@ If the question is unrelated to road safety, politely explain that you only answ
 
     try {
         const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
             {
                 method: 'POST',
                 headers: {
@@ -212,9 +212,9 @@ If the question is unrelated to road safety, politely explain that you only answ
 
         if (!response.ok) {
             console.error('Gemini API error:', JSON.stringify(data, null, 2));
-
+            const errMsg = data?.error?.message || 'Unknown error';
             return res.status(500).json({
-                reply: 'Sorry, the AI assistant is currently unavailable.'
+                reply: 'Gemini error: ' + errMsg
             });
         }
 
