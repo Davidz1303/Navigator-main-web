@@ -6,6 +6,7 @@ const http = require('http');
 const path = require('path');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, '../images'))); // points directly to images folder
 app.use(express.static(path.join(__dirname, '../public'))); // serves files like public/Nav_app.html directly, e.g. /Nav_app.html
 
